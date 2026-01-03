@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const API = "http://localhost:5000/api";
+const API = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const CATEGORIES = [
   { key: "world", label: "Worlds" },
@@ -41,14 +41,14 @@ export default function App() {
   const [me, setMe] = useState(null);
   const [meLoading, setMeLoading] = useState(false);
 
-  const [loginEmail, setLoginEmail] = useState("qira@test.com");
-  const [loginPassword, setLoginPassword] = useState("password123");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [authMsg, setAuthMsg] = useState("");
 
   const [mode, setMode] = useState("login");
-  const [regUsername, setRegUsername] = useState("qira");
-  const [regEmail, setRegEmail] = useState("qira@test.com");
-  const [regPassword, setRegPassword] = useState("password123");
+  const [regUsername, setRegUsername] = useState("");
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
   const [regMsg, setRegMsg] = useState("");
 
   const [category, setCategory] = useState("character");
